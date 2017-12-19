@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{ .Title }}</title>
+		{{ if .Params.private}}
+		<meta name="robots" content="noindex,nofollow" />
+		{{ end }}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		{{ template "_internal/twitter_cards.html" . }}
+	    {{ template "_internal/opengraph.html" . }}
+    	{{ template "_internal/schema.html" . }}
+     	{{ template "_internal/google_news.html" . }}
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Header -->
+								<header id="header">
+                                    <b><a href="/" class="logo">{{ .Site.Title }}</a></b>
+									<ul class="icons">
+										<li><a href="https://github.com/agstrike/silverstrike" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+									</ul>
+								</header>
+								{{ block "main" . }}{{ end }}
+
+						</div>
+					</div>
+
+				{{ partial "sidebar.html" . }}
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+		<!-- Uncomment if you want to setup search 
+			<script src="js/vendor/lunr.min.js"></script>
+		-->
+	</body>
+</html>

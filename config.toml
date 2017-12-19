@@ -1,0 +1,54 @@
+baseURL = "https://silverstrike.tk/"
+languageCode = "en-us"
+title = "SilverStrike"
+theme = "editorial"
+
+[params]
+    name = "Simon Hanna"
+    description = "description"
+    dateFormat = "02.01.2006"
+    title = "SilverStrike"
+    learnmore = "Learn More"
+    learnmorelink = "overview"
+    [params.sidebar]
+        bio = "**SilverStrike**<br> a simple finance<br> management webapp"
+        title = "Menu"
+        copyright = "&copy; Simon Hanna<br>Design: [HTML5 UP](//html5up.net)"
+    [params.contact]
+        hide = true
+        title = "Get In Touch"
+        email = "simhnna@gmail.com"
+        mailinglist = "silverstrike@googlegroups.com"
+        paypal = "https://paypal.me/simhnna"
+    [params.portfolio]
+        hide = true
+    [params.recentposts]
+        hide = true
+
+[[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 9
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    weight = 2
+
+[[menu.main]]
+    name = "Setup & Upgrade"
+    weight = 3
+
+[[menu.main]]
+    name = "Demo"
+    weight = 5
+    url = "https://demo.silverstrike.tk"
+
+[[menu.main]]
+    name = "Contributing"
+    weight = 4
+

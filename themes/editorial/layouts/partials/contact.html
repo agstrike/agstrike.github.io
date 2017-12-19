@@ -1,0 +1,10 @@
+<section>
+    <header class="major">
+        <h2>{{ .Site.Params.contact.title }}</h2>
+    </header>
+    <ul class="contact">
+        <li class="fa-envelope-o"><a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a></li>
+        <li class="fa-comments-o"><a href="mailto:{{ .Site.Params.contact.mailinglist }}">{{ .Site.Params.contact.mailinglist }}</a></li>
+        <li class="fa-paypal"><a href="{{ .Site.Params.contact.paypal }}">Send money using PayPal</a></li>
+    </ul>
+</section>

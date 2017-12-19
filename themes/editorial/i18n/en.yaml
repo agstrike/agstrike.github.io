@@ -1,0 +1,11 @@
+- id: morelink
+  translation: "More"
+
+- id: allposts
+  translation: "All posts"
+
+- id: share
+  translation: "Share on"
+
+- id: search
+  translation: "Search"

@@ -1,0 +1,19 @@
+{{ define "main"}}
+
+<section>
+<header class="main">
+	<h1>{{ .Title }} </h1>
+	<p>{{ dateFormat $.Site.Params.dateFormat .Date }}</p>
+</header>
+
+{{ with .Params.images }}
+<span class="image main"><img src="{{ index . 1 | relURL }}" alt="" /></span>
+{{ end }}
+
+<p><strong>{{ .Description }}</strong></p>
+
+<p>{{ .Content }}</p>
+</section>
+{{ $page_link := .Permalink }}
+{{ end }}
+

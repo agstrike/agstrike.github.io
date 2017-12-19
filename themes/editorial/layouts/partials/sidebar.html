@@ -1,0 +1,13 @@
+<div id="sidebar">
+    <div class="inner">
+
+        {{ partial "nav.html" . }}
+
+        {{ partial "contact.html" . }}
+
+        <footer id="footer">
+            <p class="copyright">{{ .Site.Params.sidebar.copyright | markdownify }}</p>
+        </footer>
+
+    </div>
+</div>

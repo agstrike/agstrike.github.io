@@ -1,0 +1,12 @@
+name = "Hugo Editorial"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
+description = ""
+homepage = "http://siteforthistheme.com/"
+tags = ["", ""]
+features = ["", ""]
+min_version = 0.17
+
+[author]
+  name = "Simon Hanna"
+  homepage = ""

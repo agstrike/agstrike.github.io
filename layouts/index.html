@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section id="banner">
+	<div class="content">
+		<header>
+			<h1>SilverStrike</h1>
+			<p>Finance Management Made Easy</p>
+		</header>
+		<p>
+			SilverStrike is a Django webapp that you can use to manage your finances.
+		</p>
+		<p>
+			I started working on it, because the available open source self-hosted options are limited and didn't do things as I wanted.
+			You can take a look around and see if it suits you.
+		</p>
+		<p>
+			If you have any questions or comments don't hesitate to contact me.
+		</p>
+		<ul class="actions">
+			<li><a href="{{ .Site.Params.learnmorelink }}" class="button big">{{ .Site.Params.learnmore }}</a></li>
+			<li><a href="https://demo.silverstrike.tk" target="_blank" class="button big">Demo</a></li>
+			<li><a href="https://github.com/agstrike/silverstrike/" target="_blank" class="button big">Source</a></li>
+		</ul>
+	</div>
+</section>
+{{ end }}

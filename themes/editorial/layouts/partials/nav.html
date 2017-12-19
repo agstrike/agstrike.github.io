@@ -1,0 +1,23 @@
+<!-- Menu -->
+<nav id="menu">
+    <header class="major">
+        <h2>{{ .Site.Params.sidebar.title }}</h2>
+    </header>
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+        <li class="sub-menu">
+            <span class="opener{{if $currentPage.HasMenuCurrent "main" . }} active{{end}}"{{if $currentPage.HasMenuCurrent "main" . }} style="font-weight:bold;color:#3d4449;"{{end}}>{{ .Name }}</span>
+            <ul>
+                {{ range .Children }}
+                <li><a href="{{ .URL }}"{{if $currentPage.IsMenuCurrent "main" . }} style="font-weight:bold;color:#3d4449;"{{end}}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </li>
+        {{ else }}
+        <li><a href="{{ .URL }}" {{if $currentPage.IsMenuCurrent "main" . }} style="font-weight:bold;color:#3d4449;"{{end}}>{{ .Name }}</a></li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</nav>
