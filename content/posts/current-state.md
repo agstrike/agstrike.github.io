@@ -2,6 +2,7 @@
 title: "Current State"
 date: 2017-12-22T21:36:36+01:00
 draft: false
+type: post
 ---
 
 There is a first published version of SilverStrike on [pypi](https://pypi.org/project/silverstrike/). 

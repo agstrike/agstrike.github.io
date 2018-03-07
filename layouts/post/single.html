@@ -3,6 +3,7 @@
 <section>
 <header class="main">
 	<h1>{{ .Title }} </h1>
+    <p>{{ dateFormat $.Site.Params.dateFormat .Date }}</p>
 </header>
 
 {{ with .Params.images }}
