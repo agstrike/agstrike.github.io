@@ -92,9 +92,9 @@ cd /srv/webapps/silverstrike
 python3 -m venv env
 source env/bin/activate
 pip install silverstrike
-python demo/manage migrate
+python demo/manage.py migrate
 python demo/manage.py collectstatic
-python demo/manage createsuperuser
+python demo/manage.py createsuperuser
 ```
 
 The migrate command initializes the database and applies any outstanding migrations.
