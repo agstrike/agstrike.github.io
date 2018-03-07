@@ -10,6 +10,8 @@ draft = false
 +++
 In this page you can find documentation on how the data is structured and what the convention behind the values are.
 
+It will probably not be up to date all the time, for a bleeding edge documentation refer to the `models.py` file in the repository.
+
 Foreign keys that link to other database models are stored in the database in a colums called `<model_name>_id` so for the category of a Split it would be `category_id`.
 In the code you can either use `obj.category` to access the category object, or `obj.category_id` to only get the id of the object.
 
