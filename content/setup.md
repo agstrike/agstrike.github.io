@@ -7,6 +7,10 @@ draft = false
     name = "Setup Instructions"
     parent = "Setup & Upgrade"
 +++
+
+These are generic instructions. If you want walkthrough instructions for ubuntu check [this page]({{< ref "ubuntu-setup.md" >}}).
+
+
 You will need a django project in order to run SilverStrike.
 You can clone a sample application I recommend for production from [here](https://github.com/agstrike/production-project).
 This guide assumes you are cloning the project to `/srv/webapps/silverstrike`
