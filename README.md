@@ -1,6 +1,6 @@
 # SilverStrike website
 
-This repo holds the code to build the [silverstrike website](https://silverstrike.tk)
+This repo holds the code to build the [silverstrike website](https://silverstrike.org)
 
 The website is built using [hugo](https://gohugo.io/).
 

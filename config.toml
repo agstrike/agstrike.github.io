@@ -1,4 +1,4 @@
-baseURL = "https://silverstrike.tk/"
+baseURL = "https://silverstrike.org/"
 languageCode = "en-us"
 title = "SilverStrike"
 theme = "editorial"
@@ -46,7 +46,7 @@ theme = "editorial"
 [[menu.main]]
     name = "Demo"
     weight = 5
-    url = "https://demo.silverstrike.tk"
+    url = "https://demo.silverstrike.org"
 
 [[menu.main]]
     name = "Contributing"

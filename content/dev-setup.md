@@ -5,11 +5,11 @@ draft = false
 
 [menu.main]
     name = "Dev Setup"
-    parent = "Contributing"
+    parent = "Setup & Upgrade"
     weight = 2
 +++
 
-If you want to modify Firefly to adapt it to your usecase of you want to help in development,
+If you want to modify SilverStrike to adapt it to your usecase of you want to help in development,
 this is the right place to look for information.
 
 You should start by cloning the repository.
@@ -36,8 +36,8 @@ Before you run SilverStrike for the first time, you will need to setup a databas
 ```
 cd ~/dev/silverstrike/demo
 source env/bin/activate
-python manage migrate
-python manage createsuperuser
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
 You can then proceed to run the builtin development server:
@@ -45,7 +45,7 @@ You can then proceed to run the builtin development server:
 ```
 cd ~/dev/silverstrike/demo
 source env/bin/activate
-python manage runserver
+python manage.py runserver
 ```
 
 You should now be able to access Silverstrike over http://localhost:8000
