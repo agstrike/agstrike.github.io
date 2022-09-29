@@ -17,18 +17,12 @@ theme = "editorial"
     [params.contact]
         hide = true
         title = "Get In Touch"
-        email = "simhnna@gmail.com"
-        mailinglist = "silverstrike@googlegroups.com"
-        paypal = "https://paypal.me/simhnna"
+        email = "dev@silverstrike.org"
     [params.portfolio]
         hide = true
     [params.recentposts]
         hide = true
 
-[[menu.main]]
-    name = "Blog"
-    url = "/posts/"
-    weight = 9
 
 [[menu.main]]
     name = "Home"
