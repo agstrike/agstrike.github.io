@@ -1,0 +1,72 @@
+<!doctype html><html><head><script async src="https://www.googletagmanager.com/gtag/js?id=UA-111440063-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-111440063-1")</script><title>Setup Instructions for Ubuntu</title><meta charset=utf-8><link rel=icon type=image/png sizes=32x32 href=/img/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/img/favicon-16x16.png><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no"><link rel=stylesheet href=/css/main.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Setup Instructions for Ubuntu"><meta name=twitter:description content="Note: this is probably outdated, I currently recommend setting it up using docker.
+Here is a guide on how to get up and running using Ubuntu.
+Install dependencies sudo apt update sudo apt install nginx postgresql uwsgi uwsgi-plugin-python3 python3-venv git Setup the database The recommended database to use is postgres since it comes with sane defaults.
+Postgres In this guide we will use the www-data user because that will allow us to proceed without modifications to a standard postgres installation."><meta property="og:title" content="Setup Instructions for Ubuntu"><meta property="og:description" content="Note: this is probably outdated, I currently recommend setting it up using docker.
+Here is a guide on how to get up and running using Ubuntu.
+Install dependencies sudo apt update sudo apt install nginx postgresql uwsgi uwsgi-plugin-python3 python3-venv git Setup the database The recommended database to use is postgres since it comes with sane defaults.
+Postgres In this guide we will use the www-data user because that will allow us to proceed without modifications to a standard postgres installation."><meta property="og:type" content="article"><meta property="og:url" content="https://silverstrike.org/ubuntu-setup/"><meta property="article:section" content><meta property="article:published_time" content="2018-04-30T13:27:31+01:00"><meta property="article:modified_time" content="2018-04-30T13:27:31+01:00"><meta property="og:site_name" content="SilverStrike"><meta itemprop=name content="Setup Instructions for Ubuntu"><meta itemprop=description content="Note: this is probably outdated, I currently recommend setting it up using docker.
+Here is a guide on how to get up and running using Ubuntu.
+Install dependencies sudo apt update sudo apt install nginx postgresql uwsgi uwsgi-plugin-python3 python3-venv git Setup the database The recommended database to use is postgres since it comes with sane defaults.
+Postgres In this guide we will use the www-data user because that will allow us to proceed without modifications to a standard postgres installation."><meta itemprop=datePublished content="2018-04-30T13:27:31+01:00"><meta itemprop=dateModified content="2018-04-30T13:27:31+01:00"><meta itemprop=wordCount content="652"><meta itemprop=keywords content></head><body><div id=wrapper><div id=main><div class=inner><header id=header><b><a href=/ class=logo>SilverStrike</a></b><ul class=icons><li><a href=https://github.com/agstrike/silverstrike target=_blank class="icon fa-github"><span class=label>Github</span></a></li></ul></header><section><header class=main><h1>Setup Instructions for Ubuntu</h1></header><p><strong></strong></p><p><p>Note: this is probably outdated, I currently recommend setting it up using <a href=https://silverstrike.org/docker/>docker</a>.</p><p>Here is a guide on how to get up and running using Ubuntu.</p><h2 id=install-dependencies>Install dependencies</h2><pre tabindex=0><code>sudo apt update
+sudo apt install nginx postgresql uwsgi uwsgi-plugin-python3 python3-venv git
+</code></pre><h2 id=setup-the-database>Setup the database</h2><p>The recommended database to use is postgres since it comes with sane defaults.</p><h3 id=postgres>Postgres</h3><p>In this guide we will use the www-data user because that will allow us to proceed without modifications to
+a standard postgres installation. If you know more you can very much do this step in a different way.</p><pre tabindex=0><code>sudo su -c &#34;createuser www-data &amp;&amp; createdb -O www-data silverstrikedb&#34; postgres
+</code></pre><h2 id=get-the-silverstrike-code>Get the silverstrike code</h2><p>We will serve silverstrike from /srv/webapps/silverstrike and actually install it inside a
+virtualenv in /srv/webapps/silverstrike/env</p><p>I highly recommend using a virtualenv to install silverstrike (Python projects in general)</p><p>Depending on the database you are using, you will need to install one other peace inside the virtualenv.
+Replace &lt;DATABASE_DRIVER> in the last command mentioned below with what you are using:</p><ul><li>Postgresql: <code>psycopg2</code></li><li>Mariadb: <code>mysqlclient</code></li><li>Sqlite: Yeah, you don&rsquo;t need anything</li></ul><pre tabindex=0><code># get the project to deploy silverstrike
+sudo mkdir /srv/webapps
+chown www-data:www-data /srv/webapps
+sudo su www-data -s /bin/bash
+cd /srv/webapps
+git clone https://github.com/agstrike/production-project silverstrike
+cd silverstrike
+python3 -m venv env
+source env/bin/activate
+
+pip install silverstrike &lt;DATABASE_DRIVER&gt;
+</code></pre><h2 id=configure-silverstrike>Configure SilverStrike</h2><p>You will need to edit the file <code>settings.py</code> doing the following:</p><ul><li>Uncomment the database block you are using (DATABASE) and update according to what you choose.<br>In case of the recommended setup using postgres with <code>www-data</code> as a user, you can choose anything for the password.</li><li>Change the value of SECRET_KEY</li><li>Add your public hostname to ALLOWED_HOSTS</li></ul><p>The respective settings should look similar to this:</p><pre tabindex=0><code>SECRET_KEY = &#39;$_99bc($w4iv1h8qn=q5*g-gtb&amp;99db+0kls8m6+avmzu8w^8x&#39;
+
+ALLOWED_HOSTS = [&#39;www.example.com&#39;]
+
+DATABASES = {
+    #&#39;default&#39;: {
+    #    &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+    #    &#39;NAME&#39;: os.path.join(BASE_DIR, &#39;db.sqlite3&#39;),
+    #}
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql_psycopg2&#39;,
+        &#39;NAME&#39;: &#39;silverstrikedb&#39;,
+        &#39;USER&#39;: &#39;www-data&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+    }
+    #&#39;default&#39;: {
+    #    &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+    #    &#39;NAME&#39;: &#39;silverstrikedb&#39;,
+    #    &#39;USER&#39;: &#39;silverstrike&#39;,
+    #    &#39;PASSWORD&#39;: &#39;password&#39;,
+    #}
+}
+</code></pre><h2 id=initialize-everything>Initialize everything</h2><p>The first command initializes the database.<br>The second command collects all static files that will be served by nginx directly<br>The third command creates a superuseraccount. Provide a username, email and password.<br>You will need this information to login later</p><pre tabindex=0><code>sudo su www-data -s /bin/bash
+cd /srv/webapps/silverstrike
+source env/bin/activate
+
+python manage.py migrate
+python manage.py collectstatic
+python manage.py createsuperuser
+</code></pre><h2 id=configure-uwsgi>Configure uwsgi</h2><p>There is a uwsgi configuration file provided. You will need to comment out the socket option.</p><p>In case you didn&rsquo;t adhere to the guide, you might need to change more.</p><p>Next symlink the uwsgi configuration to where uwsgi expects it, and restart uwsgi</p><pre tabindex=0><code>sudo ln -s /srv/webapps/silverstrike/uwsgi.ini /etc/uwsgi/apps-enabled/silverstrike.ini
+sudo systemctl restart uwsgi
+</code></pre><h2 id=configure-the-webserver>Configure the webserver</h2><h3 id=nginx>Nginx</h3><p>A nginx sample config is provided in the project.
+The important things to change are the <code>server_name</code> entries and to make sure the paths are correct.
+The static files are placed inside a subdirectory of the silverstrike project called <code>public/static</code> by default.
+So in case you didn&rsquo;t clone the project to <code>/srv/webapps/silverstrike</code> you will only need to change that part.</p><p>Ubuntu uses a different standard location for the uwsi socket files, so you will need to update it.
+If you simlinked the uwsgi config to <code>/etc/uwsgi/apps-enabled/silverstrike.ini</code> the location of the socket would be
+<code>/run/uwsgi/app/silverstrike/socket</code></p><p>You should really use ssl, I recommend using letsencrypt. There should be enough documentation on the internet on how to do that.
+This is the bare minimum config for nginx.</p><p>After you modified the file, symlink it and restart nginx:</p><pre tabindex=0><code>sudo ln -s /srv/webapps/silverstrike/nginx.conf /etc/nginx/sites-enabled/silverstrike
+sudo systemctl restart nginx
+</code></pre><h2 id=last-bits--enjoy>Last bits & Enjoy</h2><p>This should be it, visit the name you provided in nginx and you should be greeted with the loginscreen of SilverStrike</p><p>If everything works as expected, you should modify the settings one last time, turning of DEBUG. It is insecure to use DEBUG=True in production!</p><pre tabindex=0><code>DEBUG = False
+</code></pre><p>You need to restart uwsgi after this:</p><pre tabindex=0><code>sudo systemctl restart uwsgi
+</code></pre></p></section></div></div><div id=sidebar><div class=inner><nav id=menu><header class=major><h2>Menu</h2></header><ul><li><a href=/>Home</a></li><li class=sub-menu><span class=opener>About</span><ul><li><a href=/overview/>Overview</a></li><li><a href=/features/>Features</a></li><li><a href=/screenshots/>Screenshots</a></li><li><a href=/logo/>Logo</a></li><li><a href=/roadmap/>Roadmap</a></li></ul></li><li class=sub-menu><span class=opener>Setup</span><ul><li><a href=/dev-setup/>Dev Setup</a></li><li><a href=/docker/>Docker</a></li><li><a href=/setup/>Setup Instructions</a></li></ul></li><li class=sub-menu><span class=opener>Contributing</span><ul><li><a href=/contribute/>How you can help</a></li><li><a href=/models/>Database Models</a></li><li><a href=/rest-api/>Rest API</a></li></ul></li><li><a href=https://demo.silverstrike.org>Demo</a></li></ul></nav><section><header class=major><h2>Get In Touch</h2></header><ul class=contact><li class=fa-envelope-o><a href=mailto:dev@silverstrike.org>dev@silverstrike.org</a></li><li class=fa-github><a href=https://github.com/agstrike/silverstrike>GitHub</a></li></ul></section><footer id=footer><p class=copyright>© Simon HannaProject License: MITWebsite License: CC-BY-4.0Design: <a href=//html5up.net>HTML5 UP</a></p></footer></div></div></div><script src=/js/jquery.min.js></script>
+<script src=/js/skel.min.js></script>
+<script src=/js/util.js></script>
+<script src=/js/main.js></script></body></html>
