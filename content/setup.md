@@ -5,10 +5,10 @@ draft = false
 
 [menu.main]
     name = "Setup Instructions"
-    parent = "Setup & Upgrade"
+    parent = "Setup"
 +++
 
-These are generic instructions. If you want walkthrough instructions for ubuntu check [this page]({{< ref "ubuntu-setup.md" >}}).
+I currently recommend setting it up using [docker]({{< ref "docker.md" >}}). These instructions might not work for you anymore.
 
 
 You will need a django project in order to run SilverStrike.

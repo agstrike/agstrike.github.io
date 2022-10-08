@@ -34,7 +34,7 @@ theme = "editorial"
     weight = 2
 
 [[menu.main]]
-    name = "Setup & Upgrade"
+    name = "Setup"
     weight = 3
 
 [[menu.main]]

@@ -5,7 +5,7 @@ draft = false
 
 [menu.main]
     name = "Dev Setup"
-    parent = "Setup & Upgrade"
+    parent = "Setup"
     weight = 2
 +++
 
@@ -26,15 +26,15 @@ This is best done by just installing SilverStrike for development:
 
 ```
 cd ~/dev/silverstrike
-python3 -m venv demo/env
-source demo/env/bin/activate
+python3 -m venv env
+source env/bin/activate
 python setup.py develop
 ```
 
 Before you run SilverStrike for the first time, you will need to setup a database and the first user account:
 
 ```
-cd ~/dev/silverstrike/demo
+cd ~/dev/silverstrike
 source env/bin/activate
 python manage.py migrate
 python manage.py createsuperuser
@@ -43,7 +43,7 @@ python manage.py createsuperuser
 You can then proceed to run the builtin development server:
 
 ```
-cd ~/dev/silverstrike/demo
+cd ~/dev/silverstrike
 source env/bin/activate
 python manage.py runserver
 ```
