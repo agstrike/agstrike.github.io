@@ -4,6 +4,9 @@ date =  2018-04-30T13:27:31+01:00
 draft = false
 +++
 
+Note: this is probably outdated, I currently recommend setting it up using [docker]({{< ref "docker.md" >}}).
+
+
 Here is a guide on how to get up and running using Ubuntu.
 
 
