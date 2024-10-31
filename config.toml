@@ -1,4 +1,4 @@
-baseURL = "https://silverstrike.org/"
+baseURL = "https://agstrike.github.io/"
 languageCode = "en-us"
 title = "SilverStrike"
 theme = "editorial"
@@ -13,11 +13,10 @@ theme = "editorial"
     [params.sidebar]
         bio = "**SilverStrike**<br> a simple finance<br> management webapp"
         title = "Menu"
-        copyright = "&copy; Simon Hanna<br>Project License: MIT<br>Website License: CC-BY-4.0<br>Design: [HTML5 UP](//html5up.net)"
-    [params.contact]
-        hide = true
-        title = "Get In Touch"
-        email = "dev@silverstrike.org"
+        copyright = """&copy; Simon Hanna  
+        Project License: MIT  
+        Website License: CC-BY-4.0  
+        Design: [HTML5 UP](//html5up.net)"""
     [params.portfolio]
         hide = true
     [params.recentposts]
@@ -36,13 +35,4 @@ theme = "editorial"
 [[menu.main]]
     name = "Setup"
     weight = 3
-
-[[menu.main]]
-    name = "Demo"
-    weight = 5
-    url = "https://demo.silverstrike.org"
-
-[[menu.main]]
-    name = "Contributing"
-    weight = 4
 

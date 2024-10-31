@@ -11,6 +11,4 @@ draft = false
 There is a rest API that can be used to access and modify the data.
 [Django-rest-framework](http://www.django-rest-framework.org/) is used to create it.
 
-Instead of explaining it here, I think you'll have more fun by just exploring it yourself,
-which you can do [here](https://demo.silverstrike.org/rest/)
 

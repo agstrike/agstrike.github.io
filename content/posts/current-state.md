@@ -5,7 +5,6 @@ draft: false
 type: post
 ---
 
-There is a first published version of SilverStrike on [pypi](https://pypi.org/project/silverstrike/). 
 
 I have been using SilverStrike myself for about 6 months now, always adding stuff that I need.
 
